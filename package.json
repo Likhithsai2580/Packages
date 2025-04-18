@@ -1,0 +1,58 @@
+{
+  "name": "LocalMiner",
+  "productName": "LocalMiner",
+  "version": "1.0.0",
+  "description": "LocalMiner",
+  "main": "src/index.js",
+  "author": "LENOVO",
+  "scripts": {
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "publish": "electron-forge publish",
+    "lint": "echo \"No linting configured\"",
+    "build": "electron-builder"
+  },
+  "build": {
+    "appId": "LocalMinerRun",
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "logo.ico"
+    },
+    "nsis": {
+      "oneClick": true,
+      "installerIcon": "logo.ico",
+      "uninstallerIcon": "logo.ico",
+      "uninstallDisplayName": "LocalMinerRun-uninstaller",
+      "license": "license.md",
+      "allowToChangeInstallationDirectory": false
+    }
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^7.4.0",
+    "@electron-forge/maker-deb": "^7.4.0",
+    "@electron-forge/maker-rpm": "^7.4.0",
+    "@electron-forge/maker-squirrel": "^7.4.0",
+    "@electron-forge/maker-zip": "^7.4.0",
+    "@electron-forge/plugin-auto-unpack-natives": "^7.4.0",
+    "@electron-forge/plugin-fuses": "^7.4.0",
+    "@electron/fuses": "^1.8.0",
+    "electron": "30.0.9",
+    "electron-builder": "^25.0.0-alpha.9"
+  },
+  "keywords": [],
+  "license": "MIT",
+  "dependencies": {
+    "discord-rpc": "^4.0.1",
+    "electron-dl": "^3.3.1",
+    "electron-localshortcut": "^3.2.1",
+    "electron-squirrel-startup": "^1.0.1",
+    "extract-zip": "^2.0.1",
+    "fs": "^0.0.1-security",
+    "jquery": "^3.7.1",
+    "node-fetch": "^2.6.7",
+    "yarn": "^1.22.19"
+  }
+}

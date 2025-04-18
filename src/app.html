@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>LocalMiner</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://github.hubspot.com/odometer/themes/odometer-theme-default.css">
+    <link rel="stylesheet" href="CSS/gobal.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/styles/github-dark-dimmed.min.css">
+    <script src="https://kit.fontawesome.com/82196c4ae1.js" crossorigin="anonymous"></script>
+</head>
+<!-- <div class="preloader">
+    <div class="preload">
+        <i class="pre-text">Loading Your LocalMiner</i><br><br>
+        <progress id="pre-pro" value="0" max="100"> 32% </progress>
+    </div>
+</div>
+
+<script>
+    const progressBar = document.querySelector('#pre-pro');
+    let width = 0;
+
+    function increaseWidth() {
+        if (width >= 100) {
+            clearInterval(intervalId);
+            document.querySelector(".preloader").style.display = "none"
+        } else {
+            width++;
+            progressBar.value = width;
+        }
+    }
+
+    const intervalId = setInterval(increaseWidth, 40);
+</script> -->
+
+<body style="-webkit-app-region: drag">
+    <div class="main" style="-webkit-app-region: drag">
+        <div class="main-inner" style="-webkit-app-region: drag;padding: 2vh;">
+
+            <!-- ////////////////////////////////////////////////// NOTIFICATION ///////////////////////////////////////////////// -->
+            <div class="noti-box" id="noti-frame">
+                <div class="notification">
+                    <p id="noti-text">Hi</p>
+                </div>
+            </div>
+            <!-- ////////////////////////////////////////////////// Main Menu ///////////////////////////////////////////////// -->
+
+            <div class="menu" id="menu" style="-webkit-app-region: no-drag;">
+                <div class="inner-menu">
+                    <img src="assets/fish.png" id="fish">
+                    <div class="square">
+                        <div class="squarebox" onclick="loadInstall()">
+                            <img src="assets/icons/download.png">
+                        </div>
+                        <div class="squarebox" onclick="loadRun()">
+                            <img src="assets/icons/play-button-arrowhead.png">
+                        </div>
+                        <div class="squarebox" onclick="loadConsole()">
+                            <img src="assets/icons/terminal.png">
+                        </div>
+                        <div class="squarebox" onclick="loadPlugin()">
+                            <img src="assets/icons/plug-silhouette.png">
+                        </div>
+                        <div class="squarebox" onclick="loadSettings()">
+                            <img src="assets/icons/settings.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ////////////////////////////////////////////////// Heading Modal ///////////////////////////////////////////////// -->
+
+
+            <div class="main-info" id="maininfo" style="display: none;">
+                <h1 id="MainHeading">Menu</h1>
+                <p id="MainSub">Fill Details to Install Your Powerfull Server</p>
+            </div>
+
+            <!-- ////////////////////////////////////////////////// Install ///////////////////////////////////////////////// -->
+
+            <div class="box" style="display: none;" id="install">
+                <div class="install" style="-webkit-app-region: no-drag;">
+                    <div class="install-img">
+
+                    </div>
+                    <div class="install-form">
+                        <div class="form">
+                            <input type="text" placeholder="ServerName" id="server_name">
+                            <select name="jar" id="server_ver">
+                                <option id="paperfetch">Please Wait Loading ...</option>
+                            </select>
+                            <select name="type" id="type">
+                                <option value="false">Cracked</option>
+                                <option value="true">Non Cracked</option>
+                            </select><br>
+                            <button onclick="InstallServer()">Install ⬇️</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- ////////////////////////////////////////////////// run ///////////////////////////////////////////////// -->
+            <div class="box" style="display: none;" id="run">
+                <div class="run" style="-webkit-app-region: no-drag;">
+                    <div class="run-img">
+
+                    </div>
+                    <div class="run-form">
+                        <div class="form">
+                            <label for="server_jar" class="custom-file-upload" id="serverjar_name">
+                                Choose Server Jar
+                            </label>
+                            <input type="file" accept=".jar" id="server_jar" onchange="ChangeName()" />
+                            <div class="number-input">
+                                <button onclick="decrementNumber()" style="width: 5%;">-GB</button>
+                                <input type="number" id="numberInput" value="1" style="width: 60%;">
+                                <button onclick="incrementNumber()" style="width: 5%;">+GB</button>
+                            </div>
+                            <br>
+                            <button onclick="RunServer()">Run ▶️</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ////////////////////////////////////////////////// Settings ///////////////////////////////////////////////// -->
+            <div class="box" style="display: none;" id="settings">
+                <div class="settings" style="-webkit-app-region: no-drag;">
+                    <div class="settings-img">
+
+                    </div>
+                    <div class="settings-form">
+                        <div class="form">
+                            <select name="showip" id="Showip">
+                                <option value="false">Dont Show Ip On Discord</option>
+                                <option value="true">Show Ip On Discord</option>
+                            </select>
+                            <select name="Java Version" id="jdkv">
+                                <option value="java" id="jdkfetch">Select Jdk Version (Default System Jdk)</option>
+                            </select>
+                            <div style="display: flex;">
+                                <button style="width: 40%; margin-right: 1vh;" onclick="DownloadJdk()">Install
+                                    Jdk ⬇️</button>
+                                <button style="width: 30%;" onclick="OpenServersFolder()">Open Servers Folder
+                                    📁</button>
+                            </div>
+                            <div style="display: flex; margin-top: -2vh;">
+                                <button style="width: 20%; margin-right: 1vh;" onclick="OpenJdkFolder()">Open Jdk
+                                    Folder 📂</button>
+                                <button style="width: 50%;" onclick="reloadLocalx()">Refresh LocalMiner 🔃</button>
+                            </div>
+                            <button style="margin-top: 1vh;" onclick="saveSettings()">Save Settings 💾</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ////////////////////////////////////////////////// Console ///////////////////////////////////////////////// -->
+            <div class="box" style="display: none;" id="console">
+                <div class="console" style="-webkit-app-region: no-drag;">
+                    <div class="terminal">
+                        <pre><code id="code" class="language-js">
+
+console.log("LocalMiner Console Fire Engine")
+</code></pre>
+                        <p id="flagger" style="display: none;"></p>
+                        <input type="text" id="command" placeholder="Type Command (Press Enter to Send)">
+                    </div>
+                </div>
+            </div>
+
+            <!-- ////////////////////////////////////////////////// Download Plugins ///////////////////////////////////////////////// -->
+            <div class="box" id="plugins" style="display: none;">
+                <div class="plugin" style="-webkit-app-region: no-drag;">
+                    <div class="searchbar">
+                        <div>
+                            <label style="margin-left: 6vw;" for="server_jar2" class="custom-file-upload"
+                                id="serverjar_name2">
+                                Choose Server jar
+                            </label>
+                            <input type="file" accept=".jar" id="server_jar2" onchange="ChangeName2()" />
+                        </div>
+                        <div class="searchinput">
+                            <input type="search" placeholder="Search Plugin" id="source">
+                        </div>
+                    </div>
+                    <div class="pluginarea" id="ppl">
+
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <div id="display3" style="display: none;">Main Menu</div>
+
+    <!-- ////////////////////////////////////////////////// Footer ///////////////////////////////////////////////// -->
+
+    <div class="footer" style="-webkit-app-region: no-drag;">
+        <div class="info">
+            <div class="status">
+                <p>🟢 LocalX Users : <span class="odometer odometer-auto-theme" id="odometer">0</span></p>
+                <p>🔵 LocalX Server : <span id="country">Asia/Pacific</span></p>
+                <p id="server_ip" style="opacity: 0;">🟠 ServerIp : <span id="footer_body">play.localx.gg</span></p>
+            </div>
+            <div class="localminer">
+                <h1 onclick="loadMenu()" id="back">LocalMiner</h1>
+                <p><span onclick="docs()">Docs</span> | <span onclick="discord()">Discord</span> | <span
+                        onclick="github()">Github</span> | <span onclick="donate()">Donate</span></p>
+            </div>
+            <div class="avatar">
+                <img id="discordAvatar" src="assets/avatar.jpg" width="40">
+            </div>
+        </div>
+        <progress class="progress" id="localprocess" value="0" max="100" style="display: none;"></progress>
+    </div>
+
+    <script type="text/javascript" src="../node_modules/jquery/dist/jquery.min.js"></script>
+
+    <script>
+        function callFrame(text,soundName) {
+            const messageSound = new Audio(`assets/sounds/${soundName}.wav`);
+            messageSound.volume = 0.3
+            messageSound.play();
+            const notiFrame = document.getElementById("noti-frame");
+            const notiText = document.getElementById("noti-text");
+
+            // Set new text
+            notiText.textContent = text;
+
+            // Reset styles for animation
+            notiFrame.style.transition = "none";
+            notiFrame.style.opacity = "0";
+            notiFrame.style.top = "-11vh";
+
+            setTimeout(() => {
+                // Slide in and fade in
+                notiFrame.style.transition = "top 0.5s ease-out, opacity 0.5s ease-out";
+                notiFrame.style.top = "2vh";
+                notiFrame.style.opacity = "1";
+
+                setTimeout(() => {
+                    // Fade out at 1vh
+                    notiFrame.style.transition = "opacity 0.5s ease-in";
+                    notiFrame.style.opacity = "0";
+
+                    setTimeout(() => {
+                        // Move back up after fade-out
+                        notiFrame.style.transition = "top 0.5s ease-in";
+                        notiFrame.style.top = "-11vh";
+                    }, 500);
+                }, 5000); // Stay visible for 5 seconds
+            }, 50);
+        }
+    </script>
+
+
+    <script src="JS/coreJS/socialLinks.js"></script>
+    <script src="JS/coreJS/fetchDiscordApi.js"></script>
+    <script src="JS/webJS/buttons.js"></script>
+    <script src="JS/webJS/statusApi.js"></script>
+    <script src="JS/webJS/getFileName.js"></script>
+
+    <script src="JS/coreJS/fetchJdk.js"></script>
+    <script src="JS/coreJS/fetchServerJarApi.js"></script>
+    <script src="JS/sysJS/saveServerJar.js"></script>
+    <script src="JS/sysJS/runServerJar.js"></script>
+    <script src="https://cdn.localm.eu.org/api/pluginLibrary.js"></script>
+
+    <script src="JS/webJS/audio.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+    <!-- and it's easy to individually load additional languages -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
+    <script src='https://github.hubspot.com/odometer/odometer.js'></script>
+
+    <script>
+        hljs.highlightAll();
+    </script>
+
+    <script>
+        $('input#command').keypress(function (e) {
+            if (e.which == 10 || e.which == 13) {
+                sendCommand();
+            }
+        });
+    </script>
+
+    <script>
+        document.getElementById("jdkv").value = localStorage.getItem("jdkv") || "java"
+
+        function saveSettings() {
+            let vers = document.getElementById("jdkv").value
+            localStorage.setItem("jdkv", vers);
+        }
+
+        function reloadLocalx() {
+            window.location.href = "app.html"
+        }
+    </script>
+</body>
+
+</html>
